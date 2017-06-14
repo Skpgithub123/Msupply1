@@ -17,6 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etmobile,etpassword;
     Button btnlogin;
     TextView tvnewuser;
+    String sanket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
