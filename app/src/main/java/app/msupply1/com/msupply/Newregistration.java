@@ -1,4 +1,4 @@
-package app.msupply1.com.msupply1;
+package app.msupply1.com.msupply;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

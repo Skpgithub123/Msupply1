@@ -359,7 +359,8 @@
     <color name="profile_products_bg_color">#2A3040</color>
 
 
-
+    <color name="viewBg">#f1f5f8</color>
+    <color name="album_title">#4c4c4c</color>
 
 
 

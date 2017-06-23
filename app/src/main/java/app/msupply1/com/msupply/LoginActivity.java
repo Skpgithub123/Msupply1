@@ -1,4 +1,4 @@
-package app.msupply1.com.msupply1;
+package app.msupply1.com.msupply;
 
 import android.content.Intent;
 import android.os.Bundle;

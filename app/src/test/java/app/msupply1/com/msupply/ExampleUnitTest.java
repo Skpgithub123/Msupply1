@@ -1,4 +1,4 @@
-package app.msupply1.com.msupply1;
+package app.msupply1.com.msupply;
 
 import org.junit.Test;
 
