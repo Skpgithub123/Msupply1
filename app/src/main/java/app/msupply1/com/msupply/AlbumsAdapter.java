@@ -1,6 +1,10 @@
 package app.msupply1.com.msupply;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,24 +21,49 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-/**
- * Created by Ravi Tamada on 18/05/16.
- */
+
 public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHolder> {
 
     private Context mContext;
     private List<Album> albumList;
 
+    CardView cardview;
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, count;
         public ImageView thumbnail, overflow;
 
+        @RequiresApi(api = Build.VERSION_CODES.M)
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
             count = (TextView) view.findViewById(R.id.count);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-            overflow = (ImageView) view.findViewById(R.id.overflow);
+
+            cardview = (CardView) view.findViewById(R.id.card_view);
+
+
+            /*
+            cardview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+
+                      Toast.makeText(getActivity(), "Stop Clicking me", Toast.LENGTH_SHORT).show();
+
+
+                 //   Display_Dialog(position);
+
+
+                }
+            });*/
+           /* view = view;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+
+                }
+            });*/
         }
     }
 
@@ -43,6 +73,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         this.albumList = albumList;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -50,6 +81,10 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
 
         return new MyViewHolder(itemView);
     }
+
+
+
+
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
@@ -60,17 +95,11 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         // loading album cover using Glide library
         Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
 
-        holder.overflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopupMenu(holder.overflow);
-            }
-        });
     }
-
-    /**
+/*
+    *//**
      * Showing popup menu when tapping on 3 dots
-     */
+     *//*
     private void showPopupMenu(View view) {
         // inflate menu
         PopupMenu popup = new PopupMenu(mContext, view);
@@ -80,9 +109,9 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         popup.show();
     }
 
-    /**
+    *//**
      * Click listener for popup menu items
-     */
+     *//*
     class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
 
         public MyMenuItemClickListener() {
@@ -101,7 +130,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
             }
             return false;
         }
-    }
+    }*/
 
     @Override
     public int getItemCount() {

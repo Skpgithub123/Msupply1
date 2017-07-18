@@ -6,8 +6,4 @@
         android:orderInCategory="100"
         android:title="@string/action_buy" />
 
-    <item
-        android:id="@+id/action_play_next"
-        android:orderInCategory="101"
-        android:title="@string/action_more" />
 </menu>

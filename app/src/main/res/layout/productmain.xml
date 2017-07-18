@@ -1,3 +1,12 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.msupply1.com.msupply.Productmain"
+    android:background="@color/white"
+    android:clickable="true"
+    android:id="@+id/Productmainfragment">
+
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -42,3 +51,4 @@
     <include layout="@layout/content_main" />
 
 </android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

@@ -1,0 +1,91 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.msupply1.com.msupply.Product_perticular_details"
+    android:id="@+id/Productdetailscard"
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/spproductperticularname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="qwerty qwerty qwert"
+            android:padding="5sp"
+            android:textColor="@color/red_A700"
+            />
+        <TextView
+            android:id="@+id/spproductdetailsid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spproductperticularname"
+            android:text="asd546895212"
+            android:textAllCaps="true"
+            android:textColor="@color/green_500"
+            />
+
+        <ImageView
+            android:id="@+id/spproductdetailsimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spproductdetailsid"
+            android:src="@drawable/bricks"
+            android:layout_centerHorizontal="true"/>
+        <LinearLayout
+            android:id="@+id/linearweight"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spproductdetailsimage"
+            android:weightSum="2"
+            android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Information"
+            android:textColor="@color/red_A700"
+            android:textSize="20sp"
+            android:layout_marginTop="10sp"
+            />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="price"
+                android:textColor="@color/red_A700"
+                android:textSize="20sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10sp"
+                android:paddingLeft="30sp"
+                />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/linearweight"
+            android:layout_marginTop="5sp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:text="Lorem Ipsum छपाई और अक्षर योजन उद्योग का एक साधारण डमी पाठ है. Lorem Ipsum सन १५०० के बाद से अभी तक इस उद्योग का मानक डमी पाठ मन गया, जब एक अज्ञात मुद्रक ने नमूना लेकर एक नमूना किताब बनाई. यह न केवल पाँच सदियों से जीवित रहा बल्कि इसने इलेक्ट्रॉनिक मीडिया में छलांग लगाने के बाद भी मूलतः अपरिवर्तित रहा. यह 1960 के दशक में Letraset Lorem Ipsum अंश युक्त पत्र के रिलीज के साथ लोकप्रिय हुआ, और हाल ही में Aldus PageMaker Lorem Ipsum के संस्करणों सहित तरह डेस्कटॉप प्रकाशन सॉफ्टवेयर के साथ अधिक प्रचलित हुआ."
+    android:textColor="@color/grey_700"
+    android:paddingLeft="5dp"
+    />
+
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

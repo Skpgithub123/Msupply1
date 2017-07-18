@@ -2,15 +2,18 @@ package app.msupply1.com.msupply;
 
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +30,11 @@ public class Productmain extends Fragment {
     private RecyclerView recyclerView;
     private AlbumsAdapter adapter;
     private List<Album> albumList;
+
+    public static String pposition;
+
     View UserdetailsFragmentView;
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +55,31 @@ public class Productmain extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
+
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getContext(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                      Log.d("click position","  "+position);
+                        pposition =""+position;
+                       // Toast.makeText(getContext(),"ckickposition"+position,Toast.LENGTH_SHORT).show();
+
+                        FragmentManager fm = getFragmentManager();
+                        FragmentTransaction ft = fm.beginTransaction();
+                        ft.replace(R.id.Productmainfragment, new Productdetailsfragment());
+                        ft.commit();
+
+                        /*
+
+                        Intent intent = new Intent(getContext(),Productdetailsfragment.class);
+                        startActivity(intent);*/
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+
         prepareAlbums();
 
         try {
@@ -58,10 +90,7 @@ public class Productmain extends Fragment {
         return UserdetailsFragmentView;
     }
 
-    /**
-     * Initializing collapsing toolbar
-     * Will show and hide the toolbar title on scroll
-     */
+
     private void initCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) UserdetailsFragmentView.findViewById(R.id.collapsing_toolbar);
@@ -171,6 +200,7 @@ public class Productmain extends Fragment {
             this.includeEdge = includeEdge;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
             int position = parent.getChildAdapterPosition(view); // item position
@@ -201,4 +231,5 @@ public class Productmain extends Fragment {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
+
 }
